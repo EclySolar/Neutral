@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOID_SIGNAL</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Courier New, monospace;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+}
+
+/* Luz branca central */
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 40%, transparent 75%);
+    filter:blur(30px);
+    animation:pulse 3s infinite alternate;
+    z-index:0;
+}
+
+/* CAMADA DOS OLHOS */
+.eyes{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    overflow:hidden;
+}
+
+.eye{
+    position:absolute;
+    width:90px;
+    opacity:0.10;
+    filter:grayscale(100%) brightness(1.5);
+    animation:float 12s infinite ease-in-out alternate;
+}
+
+/* Caixa principal */
+.container{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:25px;
+    border:1px solid rgba(255,255,255,0.2);
+    background:rgba(0,0,0,0.65);
+    box-shadow:0 0 25px rgba(255,255,255,0.2);
+}
+
+/* Vídeo */
+video{
+    width:420px;
+    max-width:90vw;
+    border:2px solid #fff;
+    box-shadow:0 0 20px #fff;
+    filter:grayscale(100%) brightness(1.1) contrast(1.1);
+    margin-bottom:15px;
+}
+
+/* Texto */
+h1{
+    font-size:28px;
+    letter-spacing:4px;
+    text-shadow:0 0 10px #fff;
+    animation:flicker 1s infinite alternate;
+}
+
+p{
+    margin-top:10px;
+    color:#ccc;
+}
+
+/* Animações */
+@keyframes pulse{
+    from{transform:scale(1);opacity:0.4;}
+    to{transform:scale(1.2);opacity:0.8;}
+}
+
+@keyframes flicker{
+    0%{opacity:1;}
+    20%{opacity:0.7;}
+    40%{opacity:1;}
+    60%{opacity:0.5;}
+    80%{opacity:1;}
+    100%{opacity:0.8;}
+}
+
+@keyframes float{
+    from{transform:translateY(0px);}
+    to{transform:translateY(15px);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Fundo aleatório de olhos -->
+<div class="eyes">
+    <img src="img/31d5bfbe270a747a29e831a05680e4db.gif" class="eye" style="top:5%; left:8%; width:80px; transform:rotate(12deg);">
+    <img src="img/31d5bfbe270a747a29e831a05680e4db.gif" class="eye" style="top:18%; left:70%; width:110px; transform:rotate(-25deg);">
+    <img src="img/31d5bfbe270a747a29e831a05680e4db.gif" class="eye" style="top:35%; left:15%; width:95px; transform:rotate(47deg);">
+    <img src="img/31d5bfbe270a747a29e831a05680e4db.gif" class="eye" style="top:50%; left:80%; width:75px; transform:rotate(-60deg);">
+    <img src="img/31d5bfbe270a747a29e831a05680e4db.gif" class="eye" style="top:72%; left:10%; width:120px; transform:rotate(30deg);">
+    <img src="img/31d5bfbe270a747a29e831a05680e4db.gif" class="eye" style="top:78%; left:62%; width:85px; transform:rotate(-15deg);">
+    <img src="img/31d5bfbe270a747a29e831a05680e4db.gif" class="eye" style="top:8%; left:42%; width:70px; transform:rotate(90deg);">
+    <img src="img/31d5bfbe270a747a29e831a05680e4db.gif" class="eye" style="top:58%; left:38%; width:100px; transform:rotate(-95deg);">
+</div>
+
+<div class="container">
+
+    <video controls autoplay loop muted>
+        <source src="img/Neutral.mp4" type="video/mp4">
+    </video>
+
+    <h1>Não volte aqui</h1>
+    <p>oh... pobre cientista tola...</p>
+
+</div>
+
+</body>
+</html>
